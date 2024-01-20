@@ -1,0 +1,86 @@
+.cob-web {
+  position: absolute;
+  transition: width 100ms ease-in-out, height 100ms ease-in-out;
+  width: 47px;
+  height: 47px;
+}
+
+.card-front {
+  background-color: #ffbb89;
+  border-color: #333;
+  transform: rotateY(180deg);
+}
+
+.card-back {
+  background-color: black;
+  border-color: #ff6d00;
+  transform: rotateY(0);
+}
+
+.card-back:hover .spider {
+  transform: translateY(0);
+}
+
+.card.visible .card-back {
+  transform: rotateY(-180deg);
+}
+
+.card-face {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+  transition: transform 500ms ease-in-out;
+  backface-visibility: hidden;
+}
+
+.card-face:hover .cob-web {
+  width: 52px;
+  height: 52px;
+}
+
+.cob-web-top-left {
+  transform: rotate(270deg);
+  top: 0;
+  left: 0;
+}
+
+.cob-web-top-right {
+  top: 0;
+  right: 0;
+}
+
+.cob-web-bottom-left {
+  transform: rotate(180deg);
+  bottom: 0;
+  left: 0;
+}
+
+.cob-web-bottom-right {
+  transform: rotate(90deg);
+  bottom: 0;
+  right: 0;
+}
+
+.spider {
+  align-self: flex-start;
+  transition: transform 100ms ease-in-out;
+  transform: translateY(-10px);
+}
+
+.card {
+  position: relative;
+  cursor: url("src/assets/Cursors/GhostHover.cur"), auto;
+  height: 175px;
+  width: 125px;
+}
+
+.card-front:hover .card-value {
+  transform: scale(1);
+}
