@@ -7,10 +7,10 @@ function OverlayStart() {
     setStart(!start);
   };
 
-  const isStart = start ? "" : "overlay-text";
+  const isStart = start ? "" : "visible";
 
   return (
-    <div className={`${isStart} visible`} onClick={() => handleStart()}>
+    <div className={`${isStart} overlay-text`} onClick={() => handleStart()}>
       Click to Start
     </div>
   );

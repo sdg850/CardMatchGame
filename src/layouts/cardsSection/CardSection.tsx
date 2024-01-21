@@ -1,4 +1,4 @@
-import Card from "../../packages/cards/Card";
+import CardList from "../cardList/CardList";
 import InfoHeader from "../infoHeader/InfoHeader";
 import "./styles.css";
 
@@ -6,7 +6,7 @@ function CardSection() {
   return (
     <div className="game-container">
       <InfoHeader />
-      <Card />
+      <CardList />
     </div>
   );
 }
