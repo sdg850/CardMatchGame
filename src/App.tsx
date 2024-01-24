@@ -5,7 +5,7 @@ import OverlayEnd from "./packages/overlays/OverlayEnd";
 import OverlayWin from "./packages/overlays/OverlayWin";
 import CardSection from "./layouts/cardsSection/CardSection";
 import UseGameContex from "./hooks/UseGameContex";
-import ManageTime, { TimeContext } from "./hooks/ManageTime";
+import ManageTime from "./hooks/ManageTime";
 
 function App() {
   return (

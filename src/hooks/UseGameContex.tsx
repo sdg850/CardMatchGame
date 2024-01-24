@@ -17,7 +17,7 @@ interface IContexTypes {
 export const GameContext = createContext<IContexTypes>({
   handleTotalClicks: () => {},
   checkCardMatch: () => {},
-  matchedCards: [],
+  matchedCards: { current: [] },
   totalClicks: 0,
   isMatchCompleted: false,
   handleIsMatched: () => {},

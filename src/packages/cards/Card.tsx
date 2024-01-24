@@ -1,4 +1,4 @@
-import { memo, useContext, useState } from "react";
+import { useContext, useState } from "react";
 
 import "./styles.css";
 import { GameContext } from "../../hooks/UseGameContex";
