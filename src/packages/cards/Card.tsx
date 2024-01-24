@@ -2,8 +2,13 @@ import { memo, useContext, useState } from "react";
 
 import "./styles.css";
 import { GameContext } from "../../hooks/UseGameContex";
+import AudioControllerGame from "../../hooks/MusicManager";
 
-function Card({ card }) {
+export interface ICardTypes {
+  card: string;
+}
+
+function Card({ card }: ICardTypes) {
   const [visible, setVisible] = useState(false);
   const { totalClicks, handleTotalClicks, matchedCards, checkCardMatch } =
     useContext(GameContext);
@@ -12,6 +17,7 @@ function Card({ card }) {
     checkCardMatch(card);
     handleTotalClicks();
     setVisible(true);
+    AudioControllerGame.flip();
   };
 
   const visibleClass =
@@ -74,4 +80,4 @@ function Card({ card }) {
   );
 }
 
-export default memo(Card);
+export default Card;

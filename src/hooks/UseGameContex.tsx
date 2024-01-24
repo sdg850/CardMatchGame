@@ -1,10 +1,17 @@
-import React, { createContext, useRef, useState } from "react";
+import React, {
+  MutableRefObject,
+  createContext,
+  useRef,
+  useState,
+} from "react";
 
 interface IContexTypes {
   handleTotalClicks: () => void;
   checkCardMatch: (arg: string) => void;
-  matchedCards: React.MutableRefObject<string[]>;
+  matchedCards: MutableRefObject<string[]>;
   totalClicks: number;
+  isMatchCompleted: boolean;
+  handleIsMatched: () => void;
 }
 
 export const GameContext = createContext<IContexTypes>({
@@ -12,6 +19,8 @@ export const GameContext = createContext<IContexTypes>({
   checkCardMatch: () => {},
   matchedCards: [],
   totalClicks: 0,
+  isMatchCompleted: false,
+  handleIsMatched: () => {},
 });
 
 const UseGameContex = ({
@@ -20,17 +29,9 @@ const UseGameContex = ({
   children: React.ReactNode;
 }): React.ReactNode => {
   const [totalClicks, setTotalClicks] = useState(0);
-  // const [isVisible, setIsVisible] = useState(false);
-  // const [isPendingToCheck, setIsPendingToCheck] = useState(false);
-  // const [isMatched, setIsMatched] = useState(false);
-  // const [cardToCheck, setCardToCheck] = useState("");
-  // const [matchedCards, setMatchedCards] = useState([]);
+  const [isMatchCompleted, setIsMatchCompleted] = useState(false);
 
-  // const handleVisible = () => {
-  //   setIsVisible(isVisible);
-  // };
-
-  const matchedCards = useRef([]);
+  const matchedCards: React.MutableRefObject<string[]> = useRef([]);
   let cardToCheck = useRef("");
 
   const handleTotalClicks = (): void => {
@@ -38,39 +39,34 @@ const UseGameContex = ({
     // checkCardMatch(card);
   };
 
-  const checkCardMatch = (card) => {
+  const checkCardMatch = (card: string) => {
     if (cardToCheck.current) {
       if (card == cardToCheck.current) {
         matchedCards.current.push(card);
+        if (matchedCards.current.length == 8) {
+          setIsMatchCompleted(true);
+          matchedCards.current = [];
+        }
       }
       cardToCheck.current = "";
       return;
     }
+    setIsMatchCompleted(false);
     cardToCheck.current = card;
   };
 
-  // const checkCardMatch = ({ card }) => {
-  //   if (cardToCheck) {
-  //     const matched = card === cardToCheck;
-
-  //     if (matched) {
-  //       setMatchedCards((prev) => [...prev, card]);
-  //     }
-
-  //     setIsPendingToCheck(false);
-  //     setCardToCheck("");
-  //   }
-
-  //   setIsPendingToCheck(true);
-  //   setCardToCheck(card);
-  //   setIsMatched(matchedCards.includes(card));
-  // };
+  const handleIsMatched = () => {
+    setIsMatchCompleted(!isMatchCompleted);
+    setTotalClicks(() => 0);
+  };
 
   const providerValue: IContexTypes = {
     handleTotalClicks,
     checkCardMatch,
     matchedCards,
     totalClicks,
+    isMatchCompleted,
+    handleIsMatched,
   };
 
   return (

@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { memo, useContext, useState } from "react";
 import "./styles.css";
+import AudioControllerGame from "../../hooks/MusicManager";
+import { TimeContext } from "../../hooks/ManageTime";
+
 function OverlayStart() {
   const [start, setStart] = useState(false);
+  const { startCountdown } = useContext(TimeContext);
 
-  const handleStart = () => {
+  const handleStart = async () => {
     setStart(!start);
+    AudioControllerGame.startMusic();
+    startCountdown();
   };
 
   const isStart = start ? "" : "visible";
@@ -16,4 +22,4 @@ function OverlayStart() {
   );
 }
 
-export default OverlayStart;
+export default memo(OverlayStart);

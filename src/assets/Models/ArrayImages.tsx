@@ -1,0 +1,18 @@
+export const arrayImages = [
+  "Dracula",
+  "Dracula",
+  "Ghost",
+  "Ghost",
+  "Pumpkin",
+  "Pumpkin",
+  "Skull",
+  "Skull",
+  "Eye",
+  "Eye",
+  "Cauldron",
+  "Cauldron",
+  "Bones",
+  "Bones",
+  "Bat",
+  "Bat",
+];

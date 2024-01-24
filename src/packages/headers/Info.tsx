@@ -1,8 +1,9 @@
 import "./styles.css";
-function Info({ type, time }) {
+
+function Info({ type, setStart }) {
   return (
     <div className="game-info">
-      {type} <span id="time-remaining">{time}</span>
+      {type} <span id="time-remaining">{setStart}</span>
     </div>
   );
 }
