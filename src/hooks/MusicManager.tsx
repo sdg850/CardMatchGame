@@ -1,3 +1,9 @@
+import Creepy from "../assets/Audio/creepy.mp3";
+import Flip from "../assets/Audio/flip.wav";
+import Match from "../assets/Audio/match.wav";
+import Victory from "../assets/Audio/victory.wav";
+import GameOver from "../assets/Audio/gameOver.wav";
+
 class AudioController {
   bgMusic: HTMLAudioElement;
   flipSound: HTMLAudioElement;
@@ -6,11 +12,11 @@ class AudioController {
   gameOverSound: HTMLAudioElement;
 
   constructor() {
-    this.bgMusic = new Audio("src/assets/Audio/creepy.mp3");
-    this.flipSound = new Audio("src/assets/Audio/flip.wav");
-    this.matchSound = new Audio("src/assets/Audio/match.wav");
-    this.victorySound = new Audio("src/assets/Audio/victory.wav");
-    this.gameOverSound = new Audio("src/assets/Audio/gameOver.wav");
+    this.bgMusic = new Audio(Creepy);
+    this.flipSound = new Audio(Flip);
+    this.matchSound = new Audio(Match);
+    this.victorySound = new Audio(Victory);
+    this.gameOverSound = new Audio(GameOver);
     this.bgMusic.volume = 0.5;
     this.bgMusic.loop = true;
   }

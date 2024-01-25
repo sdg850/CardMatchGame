@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Creepy";
-  src: url("src/assets/Fonts/Creepy.woff") format("woff"),
-    url("src/assets/Fonts/Creepy.woff2") format("woff2");
+  src: local("Creepy"), url("./assets/Fonts/Creepy.woff") format("woff"),
+    local("Creepy"), url("./assets/Fonts/Creepy.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Lunacy";
-  src: url("src/assets/Fonts/Lunacy.woff") format("woff"),
-    url("src/assets/Fonts/Lunacy.woff2") format("woff2");
+  src: local("Lunacy"), url("./assets/Fonts/Lunacy.woff") format("woff"),
+    local("Lunacy"), url("./assets/Fonts/Lunacy.woff2") format("woff2");
 }
 
 * {
